@@ -9,6 +9,11 @@ setx FLASK_APP "hello.py"
 ```
 export FLASK_APP=hello.py
 ```
+### Run app
+```
+Flask run --debug
+```
+
 ### Pip install requirements
 ```
 pip install -r requirements.txt

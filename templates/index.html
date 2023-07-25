@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestión Escuela</title>
+    </head>
+    <body>
+        <h1>Menú principal</h1>
+        <h2>Estudiantes</h2>
+            <ul>
+                <li><a href="#" onclick="get_all_student(); return false;">Consultar</a></li>
+                <li><a>Crear</a></li>
+            </ul>
+        <h2>Asistencia</h2>
+            <ul>
+                <li><button>Consultar</button></li>
+                <li><button>Crear</button></li>
+            </ul>
+        <script>
+            function get_all_student(){
+                fetch('http://127.0.0.1:5000/api/student/all')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                }).catch(error => console.error('Error fetching data:', error));
+            }
+        </script>
+    </body>
+</html>

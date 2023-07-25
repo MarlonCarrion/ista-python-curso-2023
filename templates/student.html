@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestión Escuela</title>
+</head>
+<body>
+    <h1>Estudiantes</h1>
+    <table border="2">
+        <tr>
+            <th>Cédula</th>
+            <th>Primer nombre</th>
+            <th>Segundo nombre</th>
+            <th>Primer apellido</th>
+            <th>Segundo apellido</th>
+        </tr>
+        {% for person in data %}
+            <tr>
+                <td>{{ person['cedula'] }}</td>
+                <td>{{ person['primer_apellido'] }}</td>
+                <td>{{ person['segundo_apellido'] }}</td>
+                <td>{{ person['primer_nombre'] }}</td>
+                <td>{{ person['segundo_nombre'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
