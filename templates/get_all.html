@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Gestión Escuela</title>
-</head>
-<body>
-    <h1>Estudiantes</h1>
-    <table border="2">
+{% extends "base.html" %}
+
+{% block title %}Estudiante{% endblock %}
+
+{% block content %}
+<!--    <h2>Consultar estudiante</h2>-->
+    <table>
         <tr>
             <th>Cédula</th>
             <th>Primer nombre</th>
@@ -23,5 +22,4 @@
             </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}

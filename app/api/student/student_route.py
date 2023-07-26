@@ -12,4 +12,10 @@ router_student = Blueprint('student', __name__)
 def read_student():
     students = StudentController.get_all()
     json_str = json.dumps(students, cls=EstudianteEncoder, ensure_ascii=True)
-    return render_template('student.html', data=json.loads(json_str))
+    return render_template('get_all.html', data=json.loads(json_str))
+
+
+@router_student.route('/create')
+def create_student():
+    return render_template('student/create.html')
+
