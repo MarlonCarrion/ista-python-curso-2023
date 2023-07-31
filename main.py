@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_restx import Api
 
-from app.api.attendance.student_route import router_attendance
+from app.api.attendance.attendance_route import router_attendance
 from app.api.student.student_route import router_student
 from app.database.connection import SessionLocal
 

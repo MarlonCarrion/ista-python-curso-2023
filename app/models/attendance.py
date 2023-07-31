@@ -1,4 +1,6 @@
 # coding: utf-8
+import json
+
 from sqlalchemy import Column, Date, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
@@ -17,4 +19,11 @@ class Asistencia(Base):
     fecha = Column(Date, nullable=False)
     cedula = Column(ForeignKey('estudiante.cedula'), nullable=False, index=True)
 
-    estudiante = relationship('Estudiante')
+    estudiante = relationship('Estudiante', backref='asistencias')
+
+
+class AsistenciaEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, Asistencia):
+            return {'codigo': obj.codigo, 'materia': obj.materia, 'fecha': obj.fecha}
+        return json.JSONEncoder.default(self, obj)

@@ -115,6 +115,8 @@ input[type="submit"]:hover {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    overflow: auto;
+    max-height: 500px;
 }
 
 footer {
