@@ -17,13 +17,13 @@ class Asistencia(Base):
     codigo = Column(Integer, primary_key=True)
     materia = Column(String(100), nullable=False)
     fecha = Column(Date, nullable=False)
-    cedula = Column(ForeignKey('estudiante.cedula'), nullable=False, index=True)
+    cedula = Column(String(10))
 
-    estudiante = relationship('Estudiante', backref='asistencias')
+    # estudiante = relationship('Estudiante')
 
 
 class AsistenciaEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, Asistencia):
-            return {'codigo': obj.codigo, 'materia': obj.materia, 'fecha': obj.fecha}
+            return {'codigo': obj.codigo, 'materia': obj.materia, 'fecha': obj.fecha.isoformat(), 'cedula': obj.cedula}
         return json.JSONEncoder.default(self, obj)

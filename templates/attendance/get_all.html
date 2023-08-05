@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Asistencias{% endblock %}
+
+{% block content %}
+<!--    <h2>Consultar estudiante</h2>-->
+    <table>
+        <tr>
+            <th>Código</th>
+            <th>Materia</th>
+            <th>Fecha</th>
+            <th>Cédula</th>
+        </tr>
+        {% for attendance in data %}
+            <tr>
+                <td>{{ attendance['codigo'] }}</td>
+                <td>{{ attendance['materia'] }}</td>
+                <td>{{ attendance['fecha'] }}</td>
+                <td>{{ attendance['cedula'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

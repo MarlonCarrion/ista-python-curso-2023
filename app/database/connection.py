@@ -10,6 +10,7 @@ configuration = get_config()
 engine = create_engine(configuration['DB_URL'])
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+Base.metadata.create_all(engine)
 
 
 @contextmanager
@@ -17,7 +18,6 @@ def get_db():
     db = SessionLocal()
     try:
         yield db
-        db.commit()
     except Exception as err:
         db.rollback()
         raise

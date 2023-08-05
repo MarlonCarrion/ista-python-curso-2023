@@ -12,4 +12,5 @@ def get_all_attendance():
 def save_attendance(attendance):
     with get_db() as db:
         db.merge(attendance)
+        db.commit()
         print('upsert attendance')

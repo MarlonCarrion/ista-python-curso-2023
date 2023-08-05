@@ -12,4 +12,5 @@ def get_all_student():
 def save_student(student):
     with get_db() as db:
         db.merge(student)
+        db.commit()
         print('upsert student....')

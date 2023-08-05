@@ -1,3 +1,25 @@
 {% extends "base.html" %}
 
 {% block title %}Crear asistencia{% endblock %}
+
+{% block content %}
+    <form action="/api/attendance/saveAttendance" method="post" class="styled-form">
+        <div class="form-group">
+            <label>Materia</label>
+            <input type="text" id="course" name="course" required>
+        </div>
+
+        <div class="form-group">
+            <label>Fecha</label>
+            <input type="text" id="date" name="date" placeholder="Año-mes-dia" required>
+        </div>
+
+        <label>Cédula</label>
+        <select id="cedula", name="cedula">
+            {% for student in data %}
+                <option value="{{ student['cedula']}}">{{ student['cedula'] }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Guardar">
+    </form>
+{% endblock%}
