@@ -21,3 +21,4 @@ def test_estudiante_encoder():
 
     # Check if the JSON representation is as expected
     assert estudiante_json == expected_json
+
