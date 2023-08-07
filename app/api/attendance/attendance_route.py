@@ -5,6 +5,7 @@ from flask import Blueprint, render_template, request
 from app.core.attendance.attendance_controller import AttendanceController
 from app.core.student.student_controller import StudentController
 from app.models.attendance import AsistenciaEncoder, Asistencia
+from app.services.attendance_service import get_attendance_by_student_course
 
 router_attendance = Blueprint('attendance', __name__)
 
@@ -31,3 +32,9 @@ def save_attendance():
     attendance.materia = request.form['course']
     AttendanceController.save(attendance)
     return read_attendance()
+
+
+@router_attendance.route('/getAttendanceByStudentCourse/{cedula}/{course}')
+def get_attendance_student_course(cedula, course):
+    attendances = get_attendance_by_student_course(cedula, course)
+    return attendances
